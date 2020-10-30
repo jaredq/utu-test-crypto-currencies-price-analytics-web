@@ -1,4 +1,6 @@
 import React from 'react';
+
+// eslint-disable-next-line
 import PriceAnalyticsData from '../../models/PriceAnalyticsData';
 import CurrencyView from './CurrencyView';
 import PercentageView from './PercentageView';

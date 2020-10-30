@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import loadingIcon from './loading.svg';
+
+// eslint-disable-next-line
 import PriceAnalyticsData from './models/PriceAnalyticsData';
 import PriceAnalyticsTable from './containers/price-analytics-table/PriceAnalyticsTable';
+
+import loadingIcon from './loading.svg';
 import './App.css';
 
 function App() {
@@ -17,7 +20,7 @@ function App() {
       changeDifferenceIn7Days: 1.3,
       changeDifferenceIn1Month: 0.3,
       volumeIn24Hours: 236764423,
-      marketCap: 1734823649
+      marketCap: 1734823649,
     },
     {
       currency: 'bnb',
@@ -26,7 +29,7 @@ function App() {
       changeDifferenceIn7Days: 12.3,
       changeDifferenceIn1Month: 4.3,
       volumeIn24Hours: 474423423,
-      marketCap: 232236423
+      marketCap: 232236423,
     },
     {
       currency: 'eos',
@@ -35,7 +38,7 @@ function App() {
       changeDifferenceIn7Days: 1.3,
       changeDifferenceIn1Month: 0.23,
       volumeIn24Hours: 8623423,
-      marketCap: 477236423
+      marketCap: 477236423,
     },
     {
       currency: 'bitcoin',
@@ -44,7 +47,7 @@ function App() {
       changeDifferenceIn7Days: 1.3,
       changeDifferenceIn1Month: -10.3,
       volumeIn24Hours: 4353423423,
-      marketCap: 34663436423
+      marketCap: 34663436423,
     },
   ];
 
@@ -54,7 +57,7 @@ function App() {
       <Button className="App-refresh-button" onClick={() => setLoading(true)}>
         Refresh
       </Button>
-      <PriceAnalyticsTable priceDataList={dummyPriceDataList}/>
+      <PriceAnalyticsTable priceDataList={dummyPriceDataList} />
       {loading && (
         <img src={loadingIcon} className="App-loading" alt="loading" />
       )}

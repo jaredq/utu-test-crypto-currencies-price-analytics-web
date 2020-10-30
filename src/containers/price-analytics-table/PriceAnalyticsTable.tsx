@@ -1,10 +1,13 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import './PriceAnalyticsTable.css';
+
+// eslint-disable-next-line
 import PriceAnalyticsData from '../../models/PriceAnalyticsData';
 import PriceDataRow from '../../components/price-analytics-data/PriceAnalyticsDataRow';
 
-function PriceAnalyticsTable(props: {priceDataList: PriceAnalyticsData[]}) {
+import './PriceAnalyticsTable.css';
+
+function PriceAnalyticsTable(props: { priceDataList: PriceAnalyticsData[] }) {
   return (
     <div>
       <Table striped bordered hover>
@@ -21,9 +24,11 @@ function PriceAnalyticsTable(props: {priceDataList: PriceAnalyticsData[]}) {
           </tr>
         </thead>
         <tbody>
-          {props.priceDataList.map((priceData: PriceAnalyticsData, idx: number) => {
-            return <PriceDataRow idx={idx} priceData={priceData} />;
-          })}
+          {props.priceDataList.map(
+            (priceData: PriceAnalyticsData, idx: number) => (
+              <PriceDataRow idx={idx} priceData={priceData} />
+            ),
+          )}
         </tbody>
       </Table>
     </div>
