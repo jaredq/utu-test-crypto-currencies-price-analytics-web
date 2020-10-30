@@ -26,7 +26,7 @@ function PriceAnalyticsTable(props: { priceDataList: PriceAnalyticsData[] }) {
         <tbody>
           {props.priceDataList.map(
             (priceData: PriceAnalyticsData, idx: number) => (
-              <PriceDataRow idx={idx} priceData={priceData} />
+              <PriceDataRow key={idx} idx={idx} priceData={priceData} />
             ),
           )}
         </tbody>

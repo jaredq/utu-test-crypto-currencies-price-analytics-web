@@ -12,6 +12,8 @@ interface PriceAnalyticsData {
   volumeIn24Hours?: number;
 
   marketCap?: number;
+
+  lastUpdatedDate?: Date;
 }
 
 export default PriceAnalyticsData;
