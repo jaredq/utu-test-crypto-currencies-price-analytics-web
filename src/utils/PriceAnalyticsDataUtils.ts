@@ -11,6 +11,6 @@ export function sortByMarketCapDesc(
   return priceAnalyticsDataList.sort((a, b) => {
     const aMarketCap = a.marketCap || 0;
     const bMarketCap = b.marketCap || 0;
-    return bMarketCap > aMarketCap ? -1 : 1;
+    return bMarketCap > aMarketCap ? 1 : -1;
   });
 }
