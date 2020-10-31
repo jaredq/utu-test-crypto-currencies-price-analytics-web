@@ -7,10 +7,11 @@ import PercentageView from './PercentageView';
 
 function PriceDataRow(props: { idx: number; priceData: PriceAnalyticsData }) {
   const { idx, priceData } = props;
-  if (priceData) {
+  const rowNo = idx + 1;
+  if (priceData && !priceData.error) {
     return (
       <tr>
-        <td>{idx + 1}</td>
+        <td>{rowNo}</td>
         <td>{priceData.currency}</td>
         <td>
           <CurrencyView amount={priceData.price} />
@@ -35,8 +36,9 @@ function PriceDataRow(props: { idx: number; priceData: PriceAnalyticsData }) {
   } else {
     return (
       <tr>
-        <td>{idx}</td>
-        <td colSpan={7}>Invalid data!</td>
+        <td>{rowNo}</td>
+        <td>{priceData.currency}</td>
+        <td colSpan={6}>{priceData.error || 'Invalid data!'}</td>
       </tr>
     );
   }

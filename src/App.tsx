@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import PriceAnalyticsData from './models/PriceAnalyticsData';
 import PriceAnalyticsTable from './containers/price-analytics-table/PriceAnalyticsTable';
 
+import { sortByMarketCapDesc } from './utils/PriceAnalyticsDataUtils';
 import { getAll as getAllPriceAnalyticsData } from './api/PriceAnalyticsDataAPI';
 
 import loadingIcon from './loading.svg';
@@ -14,13 +15,19 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [priceDataList, setPriceDataList] = useState<PriceAnalyticsData[]>([]);
 
-  const refresh = () => {
+  const refresh = async () => {
     setLoading(true);
-    getAllPriceAnalyticsData().then(priceDataList => {
-      setPriceDataList(priceDataList);
-      setLoading(false);
-    });
+
+    const priceDataList = await getAllPriceAnalyticsData();
+    sortByMarketCapDesc(priceDataList);
+    setPriceDataList(priceDataList);
+
+    setLoading(false);
   };
+
+  useEffect(() => {
+    refresh();
+  }, []);
 
   return (
     <div className="App">
